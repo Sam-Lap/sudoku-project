@@ -13,13 +13,13 @@ class SudokuGenerator:
         self.blocks_available = [[i for i in range(1, 10)] for _ in range(9)]
 
     def generate_full_board(self):
-        self._fill_board(0, 0)
+        self.fill_board(0, 0)
 
-    def _fill_board(self, row, col):
+    def fill_board(self, row, col):
         if row == 9:
             return True
         if col == 9:
-            return self._fill_board(row + 1, 0)
+            return self.fill_board(row + 1, 0)
 
         block = (row // 3) * 3 + col // 3
         possible_nums = set(self.rows_available[row]) & set(self.cols_available[col]) & set(self.blocks_available[block])
@@ -27,13 +27,13 @@ class SudokuGenerator:
         random.shuffle(nums)
 
         for num in nums:
-            if self._place_number(num, row, col):
-                if self._fill_board(row, col + 1):
+            if self.place_number(num, row, col):
+                if self.fill_board(row, col + 1):
                     return True
                 self._remove_number(num, row, col)
         return False
 
-    def _place_number(self, num, row, col):
+    def place_number(self, num, row, col):
         block = (row // 3) * 3 + col // 3
         self.board[row][col] = num
         self.rows_available[row].remove(num)
