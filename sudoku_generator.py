@@ -3,7 +3,7 @@ Sudoku Generator
 '''
 import random
 from copy import deepcopy
-from sudoku import solve_sudoku, print_board
+from sudoku_solver import solve_sudoku, print_board
 
 class SudokuGenerator:
     def __init__(self):
