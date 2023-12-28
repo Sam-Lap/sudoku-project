@@ -1,4 +1,6 @@
-
+'''
+Sudoku Solver
+'''
 class SudokuConstraints:
     def __init__(self, board):
         self.row_cstrs = [set() for _ in range(9)]
