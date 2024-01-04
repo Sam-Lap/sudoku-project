@@ -35,9 +35,6 @@ class SudokuGenerator:
         while num_to_remove > 0: 
             row, col= random.randint(0, 8), random.randint(0, 8)
             
-            # while self.board[row][col] == 0:
-            #     row = random.randint(0, 8)
-            #     col = random.randint(0, 8)
             if self.board[row][col] != 0:
                 backup = self.board[row][col]
                 self.board[row][col] = 0
@@ -99,6 +96,6 @@ generator.fill_board()
 print("Complete Board:")
 generator.print_board()
 
-generator.remove_numbers(30)  # Remove 50 numbers for example
+generator.remove_numbers(30)
 print("\nPuzzle with Removed Numbers:")
 generator.print_board()
